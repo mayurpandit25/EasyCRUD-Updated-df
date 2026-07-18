@@ -1,11 +1,15 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-svc
-spec:
-  type: LoadBalancer
-  selector:
-    app: backend
-  ports:
-   - port: 8080
-     targetPort: 8080
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: backend-svc 
+  labels: 
+    app: backend 
+spec: 
+  type: ClusterIP 
+  selector: 
+    app: backend 
+  ports: 
+    - name: backend-svc-port
+      protocol: TCP 
+      port: 8080
+      targetPort: 8080
